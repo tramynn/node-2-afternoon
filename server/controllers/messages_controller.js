@@ -32,15 +32,14 @@ const updateMessage = (req, res) => {
     // the id from the req.params is a string
     // and store into a new variable called messageIndex
     const messageIndex = messages.findIndex(message => message.id == updateId);
-    // get the object using the index
+    // storing the selected index of the message into a new variable message
     let message = messages[messageIndex];
-    // updating the object
+    // updating the selected index messsage
     message = {
         id: message.id,
         text: text || message.text,
         time: message.time
     };
-
     // overwriting the message with our new message
     messages[messageIndex] = message;
     // return the updated messages array
