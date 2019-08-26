@@ -1,5 +1,5 @@
 // creating an empty array to hold messages
-let messages = [{id: 1}];
+let messages = [];
 // initializing the id at 0
 let id = 0;
 
@@ -33,13 +33,16 @@ const updateMessage = (req, res) => {
     // and store into a new variable called messageIndex
     const messageIndex = messages.findIndex(message => message.id == updateId);
     // get the object using the index
-    let message = message[messageIndex];
+    let message = messages[messageIndex];
     // updating the object
-    message[messageIndex] = {
+    message = {
         id: message.id,
         text: text || message.text,
         time: message.time
     };
+
+    // overwriting the message with our new message
+    messages[messageIndex] = message;
     // return the updated messages array
     res.status(200).send(messages);
 }
