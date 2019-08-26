@@ -3,6 +3,8 @@ const mc = require("./controllers/messages_controller");
 const app = express();
 
 app.use(express.json());
+// setup the API to serve our front-end files
+app.use(express.static(__dirname + '/../public/build'));
 
 // post request
 app.post('/api/messages', mc.createMessage);
