@@ -1,5 +1,5 @@
 // creating an empty array to hold messages
-let messages = [];
+let messages = [{id: 1}];
 // initializing the id at 0
 let id = 0;
 
@@ -47,7 +47,7 @@ const updateMessage = (req, res) => {
 // 
 const deleteMessage = (req, res) => {
     // store params id request into a variable deleteId
-    const deleteId = req.params.id;
+    const deleteId = +req.params.id;
     // delete the message using the value of id from the request url parameters
     const messageIndex = messages.findIndex(message => message.id == deleteId);
     messages.splice(messageIndex, 1);
